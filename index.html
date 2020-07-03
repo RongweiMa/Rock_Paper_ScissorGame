@@ -6,32 +6,6 @@
     <meta name="viewport" content="width=device-width">
     <title>Rock, Paper, Scissors</title>
     <link rel="stylesheet" href="game.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            -moz-box-sizing: border-box;
-            -webkit-box-sizing: border-box;
-            box-sizing: border-box
-        }
-        
-        body {
-            padding: 5%;
-            background: #fff;
-            color: #000;
-        }
-        
-        h1 {
-            line-height: 1;
-            font-weight: 300;
-            margin-bottom: 10px;
-        }
-        
-        .game {
-            padding: 2em;
-            background: #eee;
-        }
-    </style>
 </head>
 
 <body>
@@ -41,8 +15,10 @@
             // User choice
             var userChoice = prompt("Choose rock, paper or scissors?");
 
-            if (!userChoice) {
+            if (userChoice == '' || userChoice == null) {
                 // User choice was undefined
+                document.write("<p>You did not give any input.</p>");
+            } else if (!userChoice) {
                 document.write("<p>Please write the correct input.</p>");
             } else {
                 // Display user choice
@@ -81,7 +57,7 @@
                         // paper wins
                         return "You win!";
                     } else {
-                        // scissors wins
+                        // scissors wins 
                         return "You lose! Try again.";
                     }
                 }
@@ -93,6 +69,8 @@
                         // scissors wins
                         return "You win!";
                     }
+                } else {
+                    return "Please try again";
                 }
             };
             // Run the compare function
@@ -101,6 +79,11 @@
             // Display results
             document.write("<br><hr><br>" + results);
         </script>
+
+        <hr>
+        <button onclick="window.location.href='game.html';">
+            Try again
+        </button>
     </div>
 </body>
 
